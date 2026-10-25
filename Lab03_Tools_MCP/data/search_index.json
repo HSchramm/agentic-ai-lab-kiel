@@ -1,0 +1,84 @@
+[
+  {
+    "title": "EU battery rules: recycling efficiency targets for lithium batteries",
+    "url": "notes/eu_battery_regulation.md",
+    "snippet": "Regulation (EU) 2023/1542: recycling efficiency for lithium-based batteries of 65% by average weight by end of 2025, 70% by 2030. Full details in the note file eu_battery_regulation.md.",
+    "keywords": [
+      "eu",
+      "battery",
+      "regulation",
+      "recycling",
+      "efficiency",
+      "target",
+      "lithium",
+      "2023/1542"
+    ]
+  },
+  {
+    "title": "European recycling capacity outlook 2026",
+    "url": "notes/recycling_capacity.md",
+    "snippet": "Scenario figures: about 500,000 tonnes of collected lithium-based batteries in 2026; typical plant size 25,000 t/a. Details in recycling_capacity.md.",
+    "keywords": [
+      "recycling",
+      "capacity",
+      "tonnes",
+      "collected",
+      "plant",
+      "europe",
+      "2026",
+      "battery"
+    ]
+  },
+  {
+    "title": "Glossary of tool-use and MCP terms",
+    "url": "notes/tool_glossary.md",
+    "snippet": "Definitions of tool declaration, request-execute-append cycle, tool-choice modes, MCP host/client/server, discovery. See tool_glossary.md.",
+    "keywords": [
+      "glossary",
+      "mcp",
+      "tool",
+      "definitions",
+      "host",
+      "client",
+      "server",
+      "discovery"
+    ]
+  },
+  {
+    "title": "Sodium-ion batteries: a lithium alternative?",
+    "url": "web/sodium_ion_overview.html",
+    "snippet": "Sodium-ion cells trade energy density for cheap, abundant raw materials. (External page - not part of the local corpus.)",
+    "keywords": [
+      "sodium",
+      "ion",
+      "battery",
+      "alternative",
+      "chemistry"
+    ]
+  },
+  {
+    "title": "MCP registry launches with thousands of servers",
+    "url": "web/mcp_registry_news.html",
+    "snippet": "The official Model Context Protocol registry opened in September 2025. (External page - not part of the local corpus.)",
+    "keywords": [
+      "mcp",
+      "registry",
+      "servers",
+      "protocol",
+      "2025"
+    ]
+  },
+  {
+    "title": "How the Language Server Protocol solved N x M for editors",
+    "url": "web/lsp_history.html",
+    "snippet": "Before LSP every editor needed bespoke support for every language; after, one server per language serves every editor. (External page - not part of the local corpus.)",
+    "keywords": [
+      "lsp",
+      "language",
+      "server",
+      "protocol",
+      "editors",
+      "nxm"
+    ]
+  }
+]
