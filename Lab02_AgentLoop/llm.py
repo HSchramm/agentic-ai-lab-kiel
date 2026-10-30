@@ -50,14 +50,14 @@ def _post(path, body=None, retries=5):
             with urllib.request.urlopen(request, timeout=300) as response:
                 return json.load(response)
         except urllib.error.HTTPError as error:
-            # 429 = rate limit (requests per minute): wait, then try again.
+            # 429 = rate limit (2 requests per 10 s): wait, then try again.
             if error.code == 429:
                 wait = int(error.headers.get("Retry-After") or 20)
                 if wait > MAX_WAIT:
-                    # The hourly or daily quota is used up: waiting would freeze the cell.
+                    # The hourly, daily or monthly quota is used up: waiting would freeze the cell.
                     raise RuntimeError(
-                        f"Request limit of your API key reached (30 per minute, 200 per hour, "
-                        f"1000 per day). Try again in about {wait // 60 + 1} minutes.") from None
+                        f"Request limit of your API key reached (200 per hour, 400 per day, "
+                        f"3000 per month). Try again in about {wait // 60 + 1} minutes.") from None
                 if attempt < retries:
                     print(f"(rate limit reached, waiting {wait} s)")
                     time.sleep(wait)
