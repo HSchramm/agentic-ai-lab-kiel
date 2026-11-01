@@ -1,0 +1,21 @@
+id,domain,title,snippet,gold,subset
+1,nature.com,Solid-state batteries: progress in sulfide electrolyte manufacturing,A review of recent advances in scalable sulfide electrolyte production for solid-state cells.,KEEP,easy
+2,web.mit.edu,MIT team demonstrates scalable stacking of solid-state cells,Researchers report a lamination process compatible with existing pouch-cell lines.,KEEP,easy
+3,energy.gov,DOE roadmap for domestic solid-state battery manufacturing,The Department of Energy outlines milestones for pilot production lines through 2030.,KEEP,easy
+4,ieee.org,Why solid-state production yields remain stubbornly low,Engineers discuss defect rates in oxide electrolyte sintering at scale.,KEEP,easy
+5,arxiv.org,Dry-room requirements for lithium-metal anode processing,Preprint quantifying humidity-control costs in solid-state cell assembly.,KEEP,easy
+6,sciencedirect.com,Sintering methods for oxide solid electrolytes: a comparison,Journal article comparing hot pressing and field-assisted sintering techniques.,KEEP,easy
+7,battery-deals-online.biz,"Solid state power banks - 50% off, buy now!",Limited stock! Buy now and save big on our solid state power bank collection.,DISCARD,easy
+8,crypto-pump.biz,BatteryCoin giveaway - subscribe and win!,Join our giveaway! Subscribe to our channel to win 500 BatteryCoin tokens.,DISCARD,easy
+9,gadget-blurbs.net,Top 10 phone chargers of 2026 - discount code inside,We ranked the flashiest chargers. Use our discount code for 20 percent savings.,DISCARD,easy
+10,techdigest-daily.com,New peer-reviewed study maps solid-state pilot lines worldwide,A study in a peer-reviewed journal catalogues 47 pilot production facilities.,KEEP,easy
+11,science-news-wire.org,Study: manufacturing defects dominate solid-state cell failures,Researchers release a dataset of failure modes observed across three pilot lines.,KEEP,easy
+12,random-forum.net,What is the best AA battery for TV remotes?,Forum thread about household batteries and where to get them cheaply.,DISCARD,easy
+13,battery-miracle-shop.biz,Peer-reviewed study confirms our solid-state battery supplement,A peer-reviewed study proves our graphene battery booster outperforms every competitor. Order today.,DISCARD,tricky
+14,cs.midwestern-state.edu,Course notes (2009): introduction to battery chemistry,Archived undergraduate lecture notes from 2009; this page is no longer maintained.,DISCARD,tricky
+15,qs-batterytech.com,Inside our pilot line: laminating sulfide electrolyte sheets at scale,"An engineering deep-dive into roll-to-roll processing on our production floor, with throughput numbers.",KEEP,tricky
+16,hobby-cells.net,Not a peer-reviewed journal - just my garage notes on coin cells,"These results are not from a peer-reviewed journal, only my hobby experiments with coin cells.",DISCARD,tricky
+17,nature.com,Solid-state batteries: progress in sulfide electrolyte manufacturing,A review of recent advances in scalable sulfide electrolyte production for solid-state cells.,DISCARD,tricky
+18,ft.com,Solid-state gigafactory investments triple in 2026,Subscribe to read the full article on battery manufacturing investment trends.,KEEP,tricky
+19,arxiv.org,WITHDRAWN: Defect-free sintering of garnet electrolytes,This preprint has been withdrawn by the authors due to an error in the reported data.,DISCARD,tricky
+20,energy.gov,Wind turbine maintenance schedules for federal facilities,Guidance on maintenance intervals for wind turbines at federal sites.,DISCARD,tricky
