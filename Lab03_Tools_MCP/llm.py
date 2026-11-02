@@ -10,6 +10,10 @@ The models:
                   Used by chat(..., think=True); the thinking is in message["reasoning"].
     EMBED_MODEL   qwen3-embedding-4b, turns text into vectors for search (RAG).
 
+Students without Academic Cloud access can be switched to the lab server's own models:
+the instructor puts a small file ~/work/.llm_backend.json into your workspace, and this
+client then talks to the local models instead (the first line it prints tells you which).
+
 Responses are the plain OpenAI JSON, so what you learn here works with any
 OpenAI-compatible provider:
 
@@ -31,6 +35,25 @@ EMBED_MODEL = "qwen3-embedding-4b"
 CONTEXT_LENGTH = 262_144   # tokens MODEL and THINK_MODEL can read at once
 KEY_FILE = Path.home() / ".academic_cloud_key"
 MAX_WAIT = 60              # longest rate-limit wait (seconds) before giving up with a message
+PROVIDER = "the Academic Cloud"
+
+# Alternative backend (lab server models), set up per account by the instructor.
+BACKEND_FILES = [Path.home() / ".llm_backend.json", Path.home() / "work" / ".llm_backend.json"]
+_BACKEND = {}
+for _file in BACKEND_FILES:
+    if _file.exists():
+        try:
+            _BACKEND = json.loads(_file.read_text())
+        except ValueError:
+            print(f"llm: WARNING: {_file} is not valid JSON, ignoring it")
+        break
+if _BACKEND:
+    PROVIDER = _BACKEND.get("name", "the lab server")
+    BASE_URL = _BACKEND.get("base_url", BASE_URL)
+    MODEL = _BACKEND.get("model", MODEL)
+    THINK_MODEL = _BACKEND.get("think_model", THINK_MODEL)
+    EMBED_MODEL = _BACKEND.get("embed_model", EMBED_MODEL)
+    CONTEXT_LENGTH = int(_BACKEND.get("context_length", CONTEXT_LENGTH))
 
 NO_KEY = ("No Academic Cloud API key saved. Run the Onboarding notebook "
           "(Onboarding/onboarding.ipynb), Steps 1 to 3, then restart this notebook.")
@@ -39,10 +62,13 @@ NO_KEY = ("No Academic Cloud API key saved. Run the Onboarding notebook "
 def _post(path, body=None, retries=5):
     """POST body to the server (GET when body is None), retrying on rate limits
     and on short server hiccups."""
-    if not KEY_FILE.exists():
+    if _BACKEND.get("token"):
+        key = _BACKEND["token"]           # personal lab-server token, not an Academic Cloud key
+    elif KEY_FILE.exists():
+        key = KEY_FILE.read_text().strip()
+    else:
         raise RuntimeError(NO_KEY)
-    headers = {"Content-Type": "application/json",
-               "Authorization": f"Bearer {KEY_FILE.read_text().strip()}"}
+    headers = {"Content-Type": "application/json", "Authorization": f"Bearer {key}"}
     data = None if body is None else json.dumps(body).encode()
     request = urllib.request.Request(BASE_URL + path, data=data, headers=headers)
     for attempt in range(retries + 1):
@@ -67,7 +93,7 @@ def _post(path, body=None, retries=5):
                 time.sleep(2 ** attempt)   # 1, 2, 4, 8, 16 s
                 continue
             detail = error.read().decode(errors="replace")[:300]
-            raise RuntimeError(f"Academic Cloud answered HTTP {error.code}: {detail}") from None
+            raise RuntimeError(f"{PROVIDER} answered HTTP {error.code}: {detail}") from None
 
 
 def chat(messages, model=None, think=False, **options):
@@ -96,6 +122,6 @@ def models():
     return sorted(m["id"] for m in _post("/models")["data"])
 
 
-print(f"llm: using the Academic Cloud, model {MODEL}")
-if not KEY_FILE.exists():
+print(f"llm: using {PROVIDER}, model {MODEL}")
+if not _BACKEND and not KEY_FILE.exists():
     print(f"llm: WARNING: {NO_KEY}")
